@@ -2,6 +2,27 @@
 
 Hello everyone, in this blog post we are going to explain step by step how to create a simple web application in React with Carbon Design to Deploy in IBM Cloud.
 
+## Introduction:
+
+**React** is a popular JavaScript library for building user interfaces, developed by Facebook. It enables developers to create complex and performant web applications by breaking down the UI into smaller, reusable components. In this blog, we will explore the process of creating a React application with the **Carbon Design System**, a design system and component library created by IBM.
+
+![](assets/2024-01-11-21-23-18.png)
+
+A React application is composed of various building blocks called **components**. Components are the fundamental units that allow developers to create reusable, self-contained UI elements. In a React application, we can create **pages**, which consist of multiple components combined to form a complete view. Pages represent different sections or screens in the application that users interact with.
+
+The main elements of a React application include:
+
+1. **Components**: The reusable building blocks of the UI, which can be either functional or class-based.
+2. **JSX**: A syntax extension that allows us to write HTML-like code within JavaScript for creating components.
+3. **State**: Used to manage the data within components.
+4. **Props**: Enable the passing of data between components.
+
+To manage the state in a larger application, state management libraries like **Redux** can be used. Redux provides a centralized store for the application state and allows for more predictable state updates through actions and reducers.
+
+In this tutorial, we will learn how to create a React application with the **Carbon Design System**, which provides a consistent look and feel for our app, leveraging the pre-built components and design patterns from IBM. Additionally, we will explore how to manage the application state using **Redux**.
+
+By the end of this blog, you will be equipped with the knowledge and skills required to build a React application with Carbon in the IBM Cloud, understanding the basics of components, pages, state management, and more.
+
 ## Step 1 — Install Node.js
 To follow along with this tutorial, you will need to have Node.js and npm installed on your machine.
 
@@ -290,9 +311,7 @@ This code defines a Redux slice for managing the state of `anotherObjectArr` usi
 ## Step 7 - Creation of pages and components
 
 It is best to organize your components and pages in their individual folders. Create two folders called pages and components. And then create a HomePage folder under the pages folder. And then create a `Homepage.js` and a `index.scss` file in that folder.
-
-
-
+## Step 8 - Homepage Page
 ```js
 import React from "react";
 import {
@@ -357,7 +376,57 @@ with the following structure
 ![](assets/2024-01-11-11-37-24.png)
 
 
-## Step 6 - Navigation
+## Step 9 - Profile Page
+
+We can create additional pages as follows:
+`react-carbon-app\src\pages\ProfilePage\ProfilePage.js`
+
+
+
+```js
+import React from "react";
+import {
+  Content,
+} from "@carbon/react";
+
+function ProfilePage() {
+	
+	return (	
+	  <Content>
+      <span>Profile page.</span>
+	  </Content>
+  );  
+};
+
+export default ProfilePage;
+```
+The `ProfilePage.js` file defines a simple React functional component called `ProfilePage`. This component uses the Carbon Design System's `Content` component to render a section of the application dedicated to the profile page. Inside the `Content` component, a single text element with the content "Profile page." is displayed. The `ProfilePage` component can be used within the application to show the profile page content when the corresponding route is navigated to by the user.
+
+## Step 10  - Upload Page
+
+We create the following file at `react-carbon-app\src\pages\UploadsPage\UploadsPage.js`
+
+
+```js
+import React from "react";
+import {
+  Content,
+} from "@carbon/react";
+
+function UploadsPage() {
+	
+	return (		
+	  <Content>
+      <span>Uploads page.</span>
+	  </Content>
+  );  
+};
+
+export default UploadsPage;
+```
+The `UploadsPage.js` file defines a simple React functional component called `UploadsPage`. This component uses the Carbon Design System's `Content` component to render a section of the application dedicated to the uploads page. Inside the `Content` component, a single text element with the content "Uploads page." is displayed. The `UploadsPage` component can be used within the application to show the uploads page content when the corresponding route is navigated to by the user.
+
+## Step 11 - Navigation
 
 Create a new folder called Navigation in the components folder and then new file called `Navigation.js` at the path `components/navigation/Navigation.js`
 
@@ -405,70 +474,20 @@ The `Navigation.js` file defines a React functional component called `Navigation
 
 The component returns JSX that renders a `SideNav` with a `SideNavItems` container holding three `SideNavLink` elements. Each `SideNavLink` has an associated icon and a corresponding `href` attribute to navigate to the `/upload`, `/profile`, or `/homepage` routes when clicked. The `Navigation` component can be included in other parts of the application to provide a consistent navigation experience.
 
-
-
-## Step 10 - Creation of the 
-
-
-
-We can create additional pages as follows:
-`react-carbon-app\src\pages\ProfilePage\ProfilePage.js`
-
-
-
-```js
-import React from "react";
-import {
-  Content,
-} from "@carbon/react";
-
-function ProfilePage() {
-	
-	return (	
-	  <Content>
-      <span>Profile page.</span>
-	  </Content>
-  );  
-};
-
-export default ProfilePage;
-```
-The `ProfilePage.js` file defines a simple React functional component called `ProfilePage`. This component uses the Carbon Design System's `Content` component to render a section of the application dedicated to the profile page. Inside the `Content` component, a single text element with the content "Profile page." is displayed. The `ProfilePage` component can be used within the application to show the profile page content when the corresponding route is navigated to by the user.
-and`react-carbon-app\src\pages\UploadsPage\UploadsPage.js`
-
-
-```js
-import React from "react";
-import {
-  Content,
-} from "@carbon/react";
-
-function UploadsPage() {
-	
-	return (		
-	  <Content>
-      <span>Uploads page.</span>
-	  </Content>
-  );  
-};
-
-export default UploadsPage;
-```
-The `UploadsPage.js` file defines a simple React functional component called `UploadsPage`. This component uses the Carbon Design System's `Content` component to render a section of the application dedicated to the uploads page. Inside the `Content` component, a single text element with the content "Uploads page." is displayed. The `UploadsPage` component can be used within the application to show the uploads page content when the corresponding route is navigated to by the user.
-
-
 Now the code should allow the user to navigate between the several pages in our application
 
 
 ```
 npm start
 ```
+![](assets/2024-01-11-19-54-50.png)
 at the localhost website 
 [http://localhost:3000/](http://localhost:3000/)
+
 you will get:
+![](assets/2024-01-11-19-55-35.png)
 
-
-## Migraiton to Yarn (Optional)
+## Yarn Installation (Optional)
 Yarn gives many advantages over npm, you can install if your project require.
    ```
    npm install --global yarn
